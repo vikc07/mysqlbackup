@@ -20,7 +20,7 @@ def do():
 
     # Configure commands
     mysqlcliauth = "--host={host} --port={port} --user={user} --password={passw}"
-    mysqlclidocker = "docker run --network=host -i {image}"
+    mysqlclidocker = "docker run -i {image}"
 
     mysqlcliauth = mysqlcliauth.format(
         host=cfg.MYSQL['HOST'],
