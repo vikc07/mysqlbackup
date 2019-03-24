@@ -28,27 +28,27 @@ the machine where this program will run or a docker container that
 
 **Clone the repository**
 
-`git clone https://github.com/vikc07/mysqlbackup.git`
+    git clone https://github.com/vikc07/mysqlbackup.git
 
 
 **Install dependencies**
 
-`pip install -r mysqlbackup/requirements.txt`
+    pip install -r mysqlbackup/requirements.txt
 
 
 **Edit config file**
 
 If using `mysqlci` on Docker
 
-`cp mysqlbackup/mysqlbackup/cfg/sample_docker_mysqlbackup.json mysqlbackup/mysqlbackup/cfg/mysqlbackup.json`
+    cp mysqlbackup/mysqlbackup/cfg/sample_docker_mysqlbackup.json mysqlbackup/mysqlbackup/cfg/mysqlbackup.json
 
 If using local `mysqlcli`
 
-`cp mysqlbackup/mysqlbackup/cfg/sample_mysqlbackup.json mysqlbackup/mysqlbackup/cfg/mysqlbackup.json`
+    cp mysqlbackup/mysqlbackup/cfg/sample_mysqlbackup.json mysqlbackup/mysqlbackup/cfg/mysqlbackup.json
 
 Use your favorite text editor to edit the file
 
-`nano mysqlbackup/mysqlbackup/cfg/mysqlbackup.json`
+    nano mysqlbackup/mysqlbackup/cfg/mysqlbackup.json
 
 Options explained
 
@@ -69,6 +69,8 @@ Options explained
 |BACKUP_FILE_TSFORMAT|Timestamp format in the backup file name. Default YYYYMMDD. See below for other values|
 
 **tsformat values**
+Refer to the following chart to understand what you can use as `tsformat`. The keys represent the format to use and 
+values represent the translation in Python
 
     "YYYYMMDDHHMISS": "%Y%m%d%H%M%S",
     "YYYYMMDDHHMI": "%Y%m%d%H%M",
