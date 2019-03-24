@@ -5,7 +5,7 @@
     "HOST": "mysqltest",
     "PORT": "3306",
     "USER": "roo",
-    "PASSW": ""
+    "PASSW": "root123"
   },
   "MYSQLCLI_PATH": "",
   "MYSQLCLI_USE_DOCKER": false,

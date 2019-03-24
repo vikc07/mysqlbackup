@@ -4,13 +4,11 @@ jobs:
     docker:
       - image: circleci/python:latest
 
-      - image: mysql:latest
+      - image: circleci/mysql:8
         name: mysqltest
-        commmand: --default-authentication-plugin=mysql_native_password
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-
-      - image: vikramchauhan/mysqlcli:latest
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+        command: [--default-authentication-plugin=mysql_native_password]
 
     working_directory: ~/repo
 
@@ -48,7 +46,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            apt-get install mysql-client
+            sudo apt-get install mysql-client
             pytest -q .tests/*.py
 
       - store_artifacts:
