@@ -1,6 +1,5 @@
 import os
 import gzip
-import shutil
 from gpm import config, logging, formatting
 from gpm import os as gpmos
 
