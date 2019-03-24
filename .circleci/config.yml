@@ -48,10 +48,10 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            docker run -d --name=mysqltest -p 3306:3306 -e "MYSQL_ALLOW_EMPTY_PASSWORD=yes" mysql:latest \
+            docker run -d --network --name=mysqltest -p 3306:3306 -e "MYSQL_ALLOW_EMPTY_PASSWORD=yes" mysql:latest \
             --default-authentication-plugin=mysql_native_password
             docker logs mysqltest
-            dockerize -wait tcp://0.0.0.0:3306 -timeout 120s
+            dockerize -wait tcp://0.0.0.0:3306 -timeout 60s
             docker logs mysqltest
             pytest -q .tests/*.py
 
