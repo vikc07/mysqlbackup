@@ -10,7 +10,7 @@ You will find the program useful over plain `mysqldump` in the following ways:
  "exclude" certain databases
 2) `mysqlbackup` will create one backup file per database which is automatically `gzip` compressed and has timestamp 
 in the name
-3) `mysqlbackup` logs all the activity in the backend in plain text log files and allows ability to adjust logging 
+3) `mysqlbackup` logs all the activity in the backend in plain text log files and provides an ability to adjust logging 
 level which is extremely handy for audit and troubleshooting
 
 Usually, one would create some sort of script on top of `mysqldump` to accomplish all of that. `mysqlbackup` takes 
