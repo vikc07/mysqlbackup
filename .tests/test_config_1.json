@@ -1,0 +1,23 @@
+{
+  "LOG_LEVEL": 10,
+  "LOG_ENTRY_SEPARATOR": " ",
+  "MYSQL": {
+    "HOST": "0.0.0.0",
+    "PORT": "3306",
+    "USER": "root",
+    "PASSW": ""
+  },
+  "MYSQLCLI_PATH": "",
+  "MYSQLCLI_USE_DOCKER": true,
+  "MYSQLCLI_DOCKER_IMAGE": "vikramchauhan/mysqlcli",
+  "INCLUDE": [
+    "*"
+  ],
+  "EXCLUDE": [
+    "information_schema",
+    "performance_schema",
+    "sys",
+    "mysql"
+  ],
+  "BACKUP_DIR": ""
+}

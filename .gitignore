@@ -186,3 +186,5 @@ fabric.properties
 .idea/httpRequests
 
 /.pytest_cache/
+/mysqlbackup/cfg/mysqlbackup.json
+/mysqlbackup/log/
