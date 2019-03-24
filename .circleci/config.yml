@@ -9,20 +9,23 @@ jobs:
         commmand: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_ROOT_HOST: %
 
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      - run:
-          name: install dockerize
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
+      #- run:
+       #   name: install dockerize
+        #  command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux
+        #-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf
+        #dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+        #  environment:
+         #   DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
-          command: dockerize -wait tcp://localhost:33060 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
 
       # Download and cache dependencies
       - restore_cache:
