@@ -4,13 +4,13 @@ jobs:
     docker:
       - image: circleci/python:latest
 
-      #- image: mysql:latest
-      #  name: mysqltest
-      #  commmand: --default-authentication-plugin=mysql_native_password
-      #  environment:
-      #    MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      - image: mysql:latest
+        name: mysqltest
+        commmand: --default-authentication-plugin=mysql_native_password
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
-      #- image: vikramchauhan/mysqlcli:latest
+      - image: vikramchauhan/mysqlcli:latest
 
     working_directory: ~/repo
 
@@ -19,9 +19,9 @@ jobs:
 
       - setup_remote_docker
 
-      #- run:
-       #   name: Wait for db
-        #  command: dockerize -wait tcp://mysqltest:3306 -timeout 120s
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://mysqltest:3306 -timeout 120s
 
       # Download and cache dependencies
       - restore_cache:
@@ -48,11 +48,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            docker run -d --network --name=mysqltest -p 3306:3306 -e "MYSQL_ALLOW_EMPTY_PASSWORD=yes" mysql:latest \
-            --default-authentication-plugin=mysql_native_password
-            docker logs mysqltest
-            dockerize -wait tcp://0.0.0.0:3306 -timeout 60s
-            docker logs mysqltest
+            apt-get install mysql-client
             pytest -q .tests/*.py
 
       - store_artifacts:

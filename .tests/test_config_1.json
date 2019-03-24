@@ -8,7 +8,7 @@
     "PASSW": ""
   },
   "MYSQLCLI_PATH": "",
-  "MYSQLCLI_USE_DOCKER": true,
+  "MYSQLCLI_USE_DOCKER": false,
   "MYSQLCLI_DOCKER_IMAGE": "vikramchauhan/mysqlcli",
   "INCLUDE": [
     "*"
