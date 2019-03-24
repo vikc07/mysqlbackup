@@ -15,8 +15,6 @@ jobs:
     steps:
       - checkout
 
-      - setup_remote_docker
-
       - run:
           name: Wait for db
           command: dockerize -wait tcp://mysqltest:3306 -timeout 120s
