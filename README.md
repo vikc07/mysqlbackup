@@ -50,6 +50,10 @@ Use your favorite text editor to edit the file
 
     nano mysqlbackup/mysqlbackup/cfg/mysqlbackup.json
 
+Run `mysqlbackup`
+
+    python mysqlbackup/mysqlbackup/mysqlbackup.py
+
 Options explained
 
 |Option|Description|
@@ -69,6 +73,7 @@ Options explained
 |BACKUP_FILE_TSFORMAT|Timestamp format in the backup file name. Default YYYYMMDD. See below for other values|
 
 **tsformat values**
+
 Refer to the following chart to understand what you can use as `tsformat`. The keys represent the format to use and 
 values represent the translation in Python
 
