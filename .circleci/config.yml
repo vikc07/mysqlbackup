@@ -22,7 +22,7 @@ jobs:
             DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
-          command: dockerize -wait tcp://localhost:3306 -timeout 1m
+          command: dockerize -wait tcp://localhost:33060 -timeout 1m
 
       # Download and cache dependencies
       - restore_cache:
