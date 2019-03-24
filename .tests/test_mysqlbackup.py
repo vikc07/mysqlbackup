@@ -1,6 +1,5 @@
 import os
 import shutil
-import pytest
 from gpm import os as gpmos
 from mysqlbackup import mysqlbackup
 

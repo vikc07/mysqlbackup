@@ -10,21 +10,18 @@ jobs:
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
 
+      - image: vikramchauhan/mysqlcli:latest
+
     working_directory: ~/repo
 
     steps:
       - checkout
 
-      #- run:
-       #   name: install dockerize
-        #  command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux
-        #-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf
-        #dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-        #  environment:
-         #   DOCKERIZE_VERSION: v0.3.0
+      - setup_remote_docker
+
       - run:
           name: Wait for db
-          command: dockerize -wait tcp://:33060 -timeout 120s
+          command: dockerize -wait tcp://mysqltest:3306 -timeout 120s
 
       # Download and cache dependencies
       - restore_cache:
@@ -39,6 +36,7 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+            cp mysqlbackup/cfg/sample_docker_mysqlbackup.json mysqlbackup/cfg/mysqlbackup.json
 
       - save_cache:
           paths:
@@ -46,15 +44,11 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # run tests!
-      # this example uses Django's built-in test-runner
-      # other common Python testing frameworks include pytest and nose
-      # https://pytest.org
-      # https://nose.readthedocs.io
       - run:
           name: run tests
           command: |
             . venv/bin/activate
-            pytest -q .tests/test_mysqlbackup.py
+            pytest -q .tests/*.py
 
       - store_artifacts:
           path: test-reports

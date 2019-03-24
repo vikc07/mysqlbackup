@@ -2,7 +2,7 @@
   "LOG_LEVEL": 10,
   "LOG_ENTRY_SEPARATOR": " ",
   "MYSQL": {
-    "HOST": "0.0.0.0",
+    "HOST": "mysqltest",
     "PORT": "3306",
     "USER": "root",
     "PASSW": ""
