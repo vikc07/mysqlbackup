@@ -9,7 +9,7 @@ jobs:
         commmand: --default-authentication-plugin=mysql_native_password
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-          MYSQL_ROOT_HOST: %
+          MYSQL_ROOT_HOST: localhost
 
     working_directory: ~/repo
 
