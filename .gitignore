@@ -188,3 +188,4 @@ fabric.properties
 /.pytest_cache/
 /mysqlbackup/cfg/mysqlbackup.json
 /mysqlbackup/log/
+output
