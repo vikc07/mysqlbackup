@@ -44,7 +44,7 @@ def do():
     log.debug('mysql: {}'.format(mysql))
 
     # Get a list of databases
-    log.info('getting a list of databases: {}')
+    log.info('getting a list of databases')
 
     cmd = mysql + " --execute='show databases'"
     log.debug("cmd: {}".format(cmd))
@@ -62,6 +62,7 @@ def do():
     log.debug('stdout: {}'.format(out['stdout']))
     databases = out['stdout'].splitlines()
     log.info('found {} databases'.format(len(databases)))
+    log.info(databases)
 
     if len(databases) > 0:
         for database in databases:
